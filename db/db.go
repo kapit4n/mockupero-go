@@ -6,6 +6,8 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/kapit4n/go-mockupero/models"
+
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
@@ -23,6 +25,15 @@ func Connect() *gorm.DB {
 
 	if gin.IsDebugging() {
 		db.LogMode(true)
+	}
+
+	if os.Getenv("AUTOMIGRATE") == "1" {
+		db.AutoMigrate(
+			&models.Feature{},
+			&models.Mockup{},
+			&models.Project{},
+			&models.User{},
+		)
 	}
 
 	return db

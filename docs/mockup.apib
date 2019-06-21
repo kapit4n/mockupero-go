@@ -1,0 +1,105 @@
+# Group Mockups
+Welcome to the mockups API. This API provides access to the mockups service.
+
+## mockups [/mockups]
+
+### Create mockup [POST]
+
+Create a new mockup
+
++ Request mockup (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+    + Attributes
+
+        + name: NAME (string)
+        + state: STATE (string)
+        + description: DESCRIPTION (string)
+        + imgToShow: IMGTOSHOW (string)
+        + project (project)
+        + owner (user)
+        + feature (feature)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes (mockup, fixed)
+
+### Get mockups [GET]
+
+Returns a mockup list.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (array, fixed)
+        + (mockup)
+
+## mockup details [/mockups/{id}]
+
++ Parameters
+    + id: `1` (enum[string]) - The ID of the desired mockup.
+        + Members
+            + `1`
+            + `2`
+            + `3`
+
+### Get mockup [GET]
+
+Returns a mockup.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (mockup, fixed)
+
+### Update mockup [PUT]
+
+Update a mockup.
+
++ Request mockup (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+    + Attributes
+
+        + name: NAME (string)
+        + state: STATE (string)
+        + description: DESCRIPTION (string)
+        + imgToShow: IMGTOSHOW (string)
+        + project (project)
+        + owner (user)
+        + feature (feature)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (mockup, fixed)
+
+### Delete mockup [DELETE]
+
+Delete a mockup.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+
++ Response 204
+
+# Data Structures
+## mockup (object)
+
++ id: *1* (number)
++ name: *NAME* (string)
++ state: *STATE* (string)
++ description: *DESCRIPTION* (string)
++ imgToShow: *IMGTOSHOW* (string)
++ project (project)
++ owner (user)
++ feature (feature)
++ created_at: `*2000-01-01 00:00:00*` (string)
++ updated_at: `*2000-01-01 00:00:00*` (string)

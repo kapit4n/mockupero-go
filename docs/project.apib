@@ -1,0 +1,102 @@
+# Group Projects
+Welcome to the projects API. This API provides access to the projects service.
+
+## projects [/projects]
+
+### Create project [POST]
+
+Create a new project
+
++ Request project (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+    + Attributes
+
+        + name: NAME (string)
+        + state: STATE (string)
+        + type: TYPE (string)
+        + imgToShow: IMGTOSHOW (string)
+        + description: DESCRIPTION (string)
+        + mockups ([]mockup)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes (project, fixed)
+
+### Get projects [GET]
+
+Returns a project list.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (array, fixed)
+        + (project)
+
+## project details [/projects/{id}]
+
++ Parameters
+    + id: `1` (enum[string]) - The ID of the desired project.
+        + Members
+            + `1`
+            + `2`
+            + `3`
+
+### Get project [GET]
+
+Returns a project.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (project, fixed)
+
+### Update project [PUT]
+
+Update a project.
+
++ Request project (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+    + Attributes
+
+        + name: NAME (string)
+        + state: STATE (string)
+        + type: TYPE (string)
+        + imgToShow: IMGTOSHOW (string)
+        + description: DESCRIPTION (string)
+        + mockups ([]mockup)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (project, fixed)
+
+### Delete project [DELETE]
+
+Delete a project.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+
++ Response 204
+
+# Data Structures
+## project (object)
+
++ id: *1* (number)
++ name: *NAME* (string)
++ state: *STATE* (string)
++ type: *TYPE* (string)
++ imgToShow: *IMGTOSHOW* (string)
++ description: *DESCRIPTION* (string)
++ mockups ([]mockup)
++ created_at: `*2000-01-01 00:00:00*` (string)
++ updated_at: `*2000-01-01 00:00:00*` (string)

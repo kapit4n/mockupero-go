@@ -3,7 +3,7 @@ package models
 import "time"
 
 type Project struct {
-	Id          uint       `gorm:"primary_key; AUTO_INCREMENT" json:"id" form:"id"`
+	ID          uint       `gorm:"primary_key; AUTO_INCREMENT" json:"id" form:"id"`
 	Name        string     `json:"name" form:"name"`
 	State       string     `json:"state" form:"state"`
 	Type        string     `json:"type" form:"type"`

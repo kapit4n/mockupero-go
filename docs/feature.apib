@@ -1,0 +1,87 @@
+# Group Features
+Welcome to the features API. This API provides access to the features service.
+
+## features [/features]
+
+### Create feature [POST]
+
+Create a new feature
+
++ Request feature (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+    + Attributes
+
+        + name: NAME (string)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes (feature, fixed)
+
+### Get features [GET]
+
+Returns a feature list.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (array, fixed)
+        + (feature)
+
+## feature details [/features/{id}]
+
++ Parameters
+    + id: `1` (enum[string]) - The ID of the desired feature.
+        + Members
+            + `1`
+            + `2`
+            + `3`
+
+### Get feature [GET]
+
+Returns a feature.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (feature, fixed)
+
+### Update feature [PUT]
+
+Update a feature.
+
++ Request feature (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+    + Attributes
+
+        + name: NAME (string)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes (feature, fixed)
+
+### Delete feature [DELETE]
+
+Delete a feature.
+
++ Request (application/json; charset=utf-8)
+    + Headers
+
+            Accept: application/vnd.kapit4n+json
+
++ Response 204
+
+# Data Structures
+## feature (object)
+
++ id: *1* (number)
++ name: *NAME* (string)
++ created_at: `*2000-01-01 00:00:00*` (string)
++ updated_at: `*2000-01-01 00:00:00*` (string)
