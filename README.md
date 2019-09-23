@@ -1,6 +1,7 @@
 # API Server
 
 Simple Rest API using gin(framework) & gorm(orm)
+https://github.com/wantedly/apig
 
 ## Endpoint list
 
