@@ -4,8 +4,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/kapit4n/go-mockupero/db"
-	"github.com/kapit4n/go-mockupero/server"
+	db "github.com/kapit4n/go-mockupero/db"
+	server "github.com/kapit4n/go-mockupero/server"
 )
 
 // main ...
