@@ -3,6 +3,10 @@
 Simple Rest API using gin(framework) & gorm(orm)
 https://github.com/wantedly/apig
 
+## Start it
+- go build main.js
+- ./main
+
 ## Endpoint list
 
 ### Features Resource
