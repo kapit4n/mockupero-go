@@ -36,5 +36,11 @@ func Initialize(r *gin.Engine) {
 		api.PUT("/users/:id", controllers.UpdateUser)
 		api.DELETE("/users/:id", controllers.DeleteUser)
 
+		api.GET("/comments", controllers.GetComments)
+		api.GET("/comments/:id", controllers.GetComment)
+		api.POST("/comments", controllers.CreateComment)
+		api.PUT("/comments/:id", controllers.UpdateComment)
+		api.DELETE("/comments/:id", controllers.DeleteComment)
+
 	}
 }

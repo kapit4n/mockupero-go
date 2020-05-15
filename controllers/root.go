@@ -26,6 +26,8 @@ func APIEndpoints(c *gin.Context) {
 		"project_url":  baseURL + "/projects/{id}",
 		"users_url":    baseURL + "/users",
 		"user_url":     baseURL + "/users/{id}",
+		"comments_url": baseURL + "/comments",
+		"comment_url":  baseURL + "/comments/{id}",
 	}
 
 	c.IndentedJSON(http.StatusOK, resources)
