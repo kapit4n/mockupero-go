@@ -47,6 +47,8 @@ func Initialize(r *gin.Engine) {
 		api.DELETE("/comments/:id", controllers.DeleteComment)
 
 		api.GET("/chat", controllers.GetComments)
+		api.GET("/mockupVersions", controllers.GetComments)
+		api.GET("/mockupItems", controllers.GetComments)
 		api.GET("/workflows", controllers.GetComments)
 		api.GET("/permissions", controllers.GetComments)
 		api.GET("/projectPermissions", controllers.GetComments)
