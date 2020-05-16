@@ -8,6 +8,6 @@ type Comment struct {
 	RelationId   uint       `json:"relationId" form:"relationId"`
 	Comment      string     `json:"comment" form:"comment"`
 	RelationType string     `json:"relationType" form:"relationType"`
-	CreatedAt    *time.Time `json:"created_at" form:"created_at"`
-	UpdatedAt    *time.Time `json:"updated_at" form:"updated_at"`
+	CreatedAt    *time.Time `json:"createdAt" form:"created_at"`
+	UpdatedAt    *time.Time `json:"updatedAt" form:"updated_at"`
 }

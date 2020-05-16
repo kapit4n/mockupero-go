@@ -12,6 +12,18 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func GetProjectCount(c *gin.Context) {
+	c.String(200, "10")
+}
+
+func GlobalSettings(c *gin.Context) {
+	c.String(200, "GlobalSettings")
+}
+
+func ProjectShare(c *gin.Context) {
+	c.String(200, "Project share")
+}
+
 func GetProjects(c *gin.Context) {
 	ver, err := version.New(c)
 	if err != nil {
