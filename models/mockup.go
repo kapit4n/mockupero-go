@@ -10,6 +10,7 @@ type Mockup struct {
 	Height      string     `json:"height" form:"height"`
 	Description string     `json:"description" form:"description"`
 	ImgToShow   string     `json:"imgToShow" form:"imgToShow"`
+	ProjectId   int        `json:"projectId" form:"projectId"`
 	Project     Project    `json:"project" form:"project"`
 	Owner       User       `json:"owner" form:"owner"`
 	Feature     Feature    `json:"feature" form:"feature"`

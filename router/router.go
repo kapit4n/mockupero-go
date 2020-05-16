@@ -11,7 +11,6 @@ func Initialize(r *gin.Engine) {
 
 	api := r.Group("")
 	{
-
 		api.GET("/features", controllers.GetFeatures)
 		api.GET("/features/:id", controllers.GetFeature)
 		api.POST("/features", controllers.CreateFeature)
