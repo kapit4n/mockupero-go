@@ -11,6 +11,7 @@ type MockupItem struct {
 	Top       float64    `json:"top" form:"top"`
 	Left      float64    `json:"left" form:"left"`
 	Position  string     `json:"position" form:"position"`
+	Text      string     `json:"text" form:"text"`
 	IdHtml    string     `json:"idHtml" form:"idHtml"`
 	Src       string     `json:"src" form:"src"`
 	CreatedAt *time.Time `json:"createdAt" form:"created_at"`
