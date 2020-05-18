@@ -23,6 +23,13 @@ func Initialize(r *gin.Engine) {
 		api.PUT("/mockups/:id", controllers.UpdateMockup)
 		api.DELETE("/mockups/:id", controllers.DeleteMockup)
 
+		api.GET("/mockupItems", controllers.GetMockupItems)
+		api.GET("/mockupItems/:id", controllers.GetMockupItem)
+		api.GET("/mockupItem/uploadAvatar", controllers.UploadAvatar)
+		api.POST("/mockupItems", controllers.CreateMockupItem)
+		api.PUT("/mockupItems/:id", controllers.UpdateMockupItem)
+		api.DELETE("/mockupItems/:id", controllers.DeleteMockupItem)
+
 		api.GET("/GlobalSettings/getByUserId", controllers.GlobalSettings)
 		api.GET("/projects", controllers.GetProjects)
 		api.GET("/projectsCount", controllers.GetProjectCount)
@@ -47,7 +54,6 @@ func Initialize(r *gin.Engine) {
 
 		api.GET("/chat", controllers.GetComments)
 		api.GET("/mockupVersions", controllers.GetComments)
-		api.GET("/mockupItems", controllers.GetComments)
 		api.GET("/workflows", controllers.GetComments)
 		api.GET("/permissions", controllers.GetComments)
 		api.GET("/projectPermissions", controllers.GetComments)

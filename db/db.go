@@ -31,6 +31,7 @@ func Connect() *gorm.DB {
 		db.AutoMigrate(
 			&models.Feature{},
 			&models.Mockup{},
+			&models.MockupItem{},
 			&models.Project{},
 			&models.User{},
 			&models.Comment{},
