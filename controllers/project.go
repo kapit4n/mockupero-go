@@ -129,7 +129,7 @@ func GetProject(c *gin.Context) {
 	fields := helper.ParseFields(c.DefaultQuery("fields", "*"))
 	queryFields := helper.QueryFields(models.Project{}, fields)
 
-	if err := db.Select(queryFields).First(&project, id).Error; err != nil {
+	if err := db.Preload("Mockups").Select(queryFields).First(&project, id).Error; err != nil {
 		content := gin.H{"error": "project with id#" + id + " not found"}
 		c.JSON(404, content)
 		return
