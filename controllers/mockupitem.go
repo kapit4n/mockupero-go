@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 
 	dbpkg "github.com/kapit4n/go-mockupero/db"
@@ -184,14 +183,6 @@ func UpdateMockupItem(c *gin.Context) {
 
 	db := dbpkg.DBInstance(c)
 	id := c.Params.ByName("id")
-	log.Println(id)
-	log.Println(id)
-	log.Println(id)
-	log.Println(id)
-	log.Println(id)
-	log.Println(id)
-	log.Println(id)
-	log.Println(id)
 	mockupItem := models.MockupItem{}
 
 	if db.First(&mockupItem, id).Error != nil {
@@ -204,9 +195,8 @@ func UpdateMockupItem(c *gin.Context) {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
-	log.Println(mockupItem)
 
-	if err := db.Model(&mockupItem).Updates(mockupItem).Error; err != nil {
+	if err := db.Save(&mockupItem).Error; err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
