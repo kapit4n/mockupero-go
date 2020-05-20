@@ -1,9 +1,13 @@
 package models
 
-import "time"
+import (
+	"time"
+
+	"github.com/jinzhu/gorm"
+)
 
 type MockupItem struct {
-	ID        uint       `gorm:"primary_key; AUTO_INCREMENT" json:"id" form:"id"`
+	gorm.Model
 	Name      string     `json:"name" form:"name"`
 	Type      string     `json:"type" form:"type"`
 	Width     float64    `json:"width" form:"width"`
@@ -14,6 +18,8 @@ type MockupItem struct {
 	Text      string     `json:"text" form:"text"`
 	IdHtml    string     `json:"idHtml" form:"idHtml"`
 	Src       string     `json:"src" form:"src"`
+	MockupID  uint       `json:"mockupId" form:"mockupId"`
+	Mockup    Mockup     `gorm:"association_autoupdate:false;association_autocreate:false" json:"mockup" form:"mockup"`
 	CreatedAt *time.Time `json:"createdAt" form:"created_at"`
 	UpdatedAt *time.Time `json:"updatedAt" form:"updated_at"`
 }

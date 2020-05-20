@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 
 	dbpkg "github.com/kapit4n/go-mockupero/db"
@@ -183,20 +184,29 @@ func UpdateMockupItem(c *gin.Context) {
 
 	db := dbpkg.DBInstance(c)
 	id := c.Params.ByName("id")
-	mockup := models.MockupItem{}
+	log.Println(id)
+	log.Println(id)
+	log.Println(id)
+	log.Println(id)
+	log.Println(id)
+	log.Println(id)
+	log.Println(id)
+	log.Println(id)
+	mockupItem := models.MockupItem{}
 
-	if db.First(&mockup, id).Error != nil {
-		content := gin.H{"error": "mockup with id#" + id + " not found"}
+	if db.First(&mockupItem, id).Error != nil {
+		content := gin.H{"error": "mockupItem with id#" + id + " not found"}
 		c.JSON(404, content)
 		return
 	}
 
-	if err := c.Bind(&mockup); err != nil {
+	if err := c.Bind(&mockupItem); err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
+	log.Println(mockupItem)
 
-	if err := db.Save(&mockup).Error; err != nil {
+	if err := db.Model(&mockupItem).Updates(mockupItem).Error; err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
@@ -206,7 +216,7 @@ func UpdateMockupItem(c *gin.Context) {
 		// 1.0.0 <= this version < 2.0.0 !!
 	}
 
-	c.JSON(200, mockup)
+	c.JSON(200, mockupItem)
 }
 
 func DeleteMockupItem(c *gin.Context) {
@@ -218,15 +228,15 @@ func DeleteMockupItem(c *gin.Context) {
 
 	db := dbpkg.DBInstance(c)
 	id := c.Params.ByName("id")
-	mockup := models.MockupItem{}
+	mockupItem := models.MockupItem{}
 
-	if db.First(&mockup, id).Error != nil {
-		content := gin.H{"error": "mockup with id#" + id + " not found"}
+	if db.First(&mockupItem, id).Error != nil {
+		content := gin.H{"error": "mockupItem with id#" + id + " not found"}
 		c.JSON(404, content)
 		return
 	}
 
-	if err := db.Delete(&mockup).Error; err != nil {
+	if err := db.Delete(&mockupItem).Error; err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}

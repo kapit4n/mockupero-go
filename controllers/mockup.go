@@ -117,7 +117,7 @@ func GetMockup(c *gin.Context) {
 	fields := helper.ParseFields(c.DefaultQuery("fields", "*"))
 	queryFields := helper.QueryFields(models.Mockup{}, fields)
 
-	if err := db.Preload("Project").Select(queryFields).First(&mockup, id).Error; err != nil {
+	if err := db.Preload("Project").Preload("MockupItems").Select(queryFields).First(&mockup, id).Error; err != nil {
 		content := gin.H{"error": "mockup with id#" + id + " not found"}
 		c.JSON(404, content)
 		return
