@@ -1,8 +1,6 @@
 package models
 
 import (
-	"time"
-
 	"github.com/jinzhu/gorm"
 )
 
@@ -20,6 +18,4 @@ type Mockup struct {
 	OwnerID     uint         `json:"ownerId" form:"ownerId"`
 	Owner       User         `gorm:"association_autoupdate:false;association_autocreate:false" json:"owner" form:"owner"`
 	Feature     Feature      `json:"feature" form:"feature"`
-	CreatedAt   *time.Time   `json:"createdAt" form:"created_at"`
-	UpdatedAt   *time.Time   `json:"updatedAt" form:"updated_at"`
 }

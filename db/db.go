@@ -1,6 +1,7 @@
 package db
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -15,8 +16,8 @@ import (
 )
 
 func Connect() *gorm.DB {
-	dir := filepath.Dir("db/database2.db")
-	db, err := gorm.Open("sqlite3", dir+"/database2.db")
+	dir := filepath.Dir("db/database3.db")
+	db, err := gorm.Open("sqlite3", dir+"/database3.db")
 	if err != nil {
 		log.Fatalf("Got error when connect database, the error is '%v'", err)
 	}
@@ -26,6 +27,8 @@ func Connect() *gorm.DB {
 	if gin.IsDebugging() {
 		db.LogMode(true)
 	}
+
+	fmt.Println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHhhh")
 
 	if os.Getenv("AUTOMIGRATE") != "1" {
 		db.AutoMigrate(
