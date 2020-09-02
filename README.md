@@ -6,6 +6,7 @@ https://github.com/wantedly/apig
 ## Start it
 - go build main.go
 - ./main
+- ./main AUTOMIGRATE
 
 ## Endpoint list
 
