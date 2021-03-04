@@ -3,7 +3,9 @@ package controllers
 import (
 	"encoding/json"
 	"net/http"
+	"path/filepath"
 
+	"github.com/google/uuid"
 	dbpkg "github.com/kapit4n/go-mockupero/db"
 	"github.com/kapit4n/go-mockupero/helper"
 	"github.com/kapit4n/go-mockupero/models"
@@ -232,4 +234,30 @@ func DeleteMockup(c *gin.Context) {
 	}
 
 	c.Writer.WriteHeader(http.StatusNoContent)
+}
+
+func UploadMockupScreenshot(c *gin.Context) {
+	file, err := c.FormFile("file")
+
+	if err != nil {
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"message": "No file received",
+		})
+		return
+	}
+
+	extension := filepath.Ext(file.Filename)
+
+	newFileName := uuid.New().String() + extension
+
+	if err := c.SaveUploadedFile(file, ""+newFileName); err != nil {
+		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
+			"message": "Usable to save the file",
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Your file has been successfully uploaded.",
+	})
 }

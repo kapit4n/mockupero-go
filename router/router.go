@@ -22,6 +22,7 @@ func Initialize(r *gin.Engine) {
 		api.POST("/mockups", controllers.CreateMockup)
 		api.PUT("/mockups/:id", controllers.UpdateMockup)
 		api.DELETE("/mockups/:id", controllers.DeleteMockup)
+		api.POST("/mockups/:id/upload", controllers.UploadMockupScreenshot)
 
 		api.GET("/mockupItems", controllers.GetMockupItems)
 		api.GET("/mockupItems/:id", controllers.GetMockupItem)
