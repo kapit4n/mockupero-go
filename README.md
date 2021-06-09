@@ -51,3 +51,11 @@ DELETE /users/:id
 ```
 
 server runs at http://localhost:8080
+
+### TOOLS
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"name":"Luis","username":"larce", "email": "email", "password": "password123"}' \
+  http://localhost:8080/users
+
+
