@@ -40,7 +40,7 @@ func Initialize(r *gin.Engine) {
 		api.DELETE("/projects/:id", controllers.DeleteProject)
 
 		api.POST("/login", controllers.Login)
-		api.POST("/logout", controllers.Logout)
+		//api.POST("/logout", controllers.Logout)
 		api.GET("/users", controllers.GetUsers)
 		api.GET("/users/:id", controllers.GetUser)
 		api.POST("/users", controllers.CreateUser)

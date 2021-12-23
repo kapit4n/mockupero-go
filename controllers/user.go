@@ -12,14 +12,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Logout(c *gin.Context) {
-	c.String(200, "Logout success")
-}
-
-func Login(c *gin.Context) {
-	c.String(200, "Login success")
-}
-
 func GetUsers(c *gin.Context) {
 	ver, err := version.New(c)
 	if err != nil {
